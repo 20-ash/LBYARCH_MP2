@@ -104,9 +104,9 @@ void runBenchmark()
 
         // Check correctness
         if (checkCorrectness(input, output, totalPixels))
-            printf("Correctness Check: PASSED\n");
+            printf("Correctness Status: PASSED\n");
         else
-            printf("Correctness Check: FAILED\n");
+            printf("Correctness Status: FAILED\n");
         
         // Free allocated memory
         free(input);
