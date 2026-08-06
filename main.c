@@ -1,5 +1,8 @@
 #include <stdio.h>     // Input and output functions (printf, scanf)
 #include <stdlib.h>    // Memory allocation functions (malloc, free)
+#include <time.h>      // Timing functions (clock)
+#include <math.h>      // Floating point comparison (fabs)
+
 
 // Declaration of the external assembly function
 extern void imgCvtGrayInttoFloat(
@@ -8,6 +11,108 @@ extern void imgCvtGrayInttoFloat(
     int width,              // Image width (the number of pixels per row)
     int height              // Image height (the number of rows)
 );
+
+// Function to check if the assembly output is correct
+int checkCorrectness(unsigned char* input, float* output, int size)
+{
+    // Check every converted pixel
+    for (int i = 0; i < size; i++)
+    {
+        // Expected conversion: integer pixel / 255
+        float expected = input[i] / 255.0f;
+
+
+        // Compare expected and actual output (allowing small floating point error)
+        if (fabs(output[i] - expected) > 0.001f)
+        {
+            printf("Incorrect output at pixel %d\n", i);
+            printf("Expected: %.2f | Got: %.2f\n",expected, output[i]);
+            return 0;   // Output is incorrect
+        }
+    }
+    return 1;   // Output is correct
+}
+
+// Function to perform required performance testing
+void runBenchmark()
+{
+    // Indicated image sizes
+    int imageSizes[3][2] = {
+        {10, 10},
+        {100, 100},
+        {1000, 1000}
+    };
+
+    int runs = 30; // Number of executions required
+    srand((unsigned int)time(NULL));  // Initialize random number generator
+
+
+    printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+    printf("Performance Testing\n");
+    printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+
+
+    // Test each image size
+    for (int test = 0; test < 3; test++)
+    {
+        // Get width and height
+        int width = imageSizes[test][0];
+        int height = imageSizes[test][1];
+
+        // Calculate total pixels
+        int totalPixels = width * height;
+        printf("\nImage Size: %dx%d\n", width, height);
+
+        // Allocate memory
+        unsigned char* input = (unsigned char*)malloc(totalPixels * sizeof(unsigned char));
+        float* output = (float*)malloc(totalPixels * sizeof(float));
+
+        // Check memory allocation
+        if (input == NULL || output == NULL)
+        {
+            printf("Memory allocation failed.\n");
+            return;
+        }
+
+        // Generate random pixel values from 0-255
+        for (int i = 0; i < totalPixels; i++)
+            input[i] = rand() % 256;
+       
+        double totalTime = 0;  // Store total execution time
+
+        // Execute assembly function 30 times
+        for (int i = 0; i < runs; i++)
+        {
+            clock_t start = clock();  // Start timer
+            imgCvtGrayInttoFloat(    // Assembly function being measured
+                input,
+                output,
+                width,
+                height
+            );
+            clock_t end = clock();  // Stop timer
+
+            // Calculate elapsed time
+            double elapsed =(double)(end - start) / CLOCKS_PER_SEC;
+            totalTime += elapsed;   // Add elapsed time
+        }
+
+        // Compute and print average execution time
+        double avgTime = totalTime / runs;  
+        printf("Average Execution Time (%d runs): %.6f seconds\n", runs, avgTime);
+
+
+        // Check correctness
+        if (checkCorrectness(input, output, totalPixels))
+            printf("Correctness Check: PASSED\n");
+        else
+            printf("Correctness Check: FAILED\n");
+        
+        // Free allocated memory
+        free(input);
+        free(output);
+    }
+}
 
 // Main function
 int main(void)
@@ -74,5 +179,6 @@ int main(void)
     free(input);
     free(output);
 
+    runBenchmark();
     return 0;
 }
