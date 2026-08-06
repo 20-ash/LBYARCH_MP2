@@ -35,7 +35,7 @@ int main(void)
     for (int i = 0; i < width * height; i++)
     {
         int temp;
-        if (scanf_s("%d", &temp) != 1) // Check if the input is a valid integer
+        if (scanf_s("%d%*[,]", &temp) != 1) // Check if the input is a valid integer (disregarding , after)
         {
             printf("INVALID: Please enter valid pixel values! \n");
             free(input);
