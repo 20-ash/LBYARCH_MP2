@@ -14,7 +14,7 @@ int main(void)
     int width, height;
 
     printf("Enter height and width: ");
-    scanf("%d %d", &height, &width);
+    scanf_s("%d %d", &height, &width);
 
     // Allocate memory
     unsigned char* input = (unsigned char*)malloc(width * height * sizeof(unsigned char));
@@ -32,7 +32,7 @@ int main(void)
     for (int i = 0; i < width * height; i++)
     {
         int temp;
-        scanf("%d", &temp);
+        scanf_s("%d", &temp);
 
         // Clamp values to the valid uint8 range
         if (temp < 0)
@@ -70,8 +70,8 @@ int main(void)
         if (fabsf(output[i] - expected) > 0.0001f)
         {
             printf("Mismatch at pixel %d\n", i);
-            printf("Expected: %.6f\n", expected);
-            printf("Actual:   %.6f\n", output[i]);
+            printf("Expected: %.2f\n", expected);
+            printf("Actual:   %.2f\n", output[i]);
 
             correct = 0;
             break;
