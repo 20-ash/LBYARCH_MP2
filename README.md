@@ -33,7 +33,7 @@ Refer to the images below for the benchmark results:
 
 | | |
 |:---:|:---:|
-| **ASUS A (VivoBook M570DD)** | **ASUS Nitro V15** |
+| **ASUS VivoBook M570DD** | **ASUS Nitro V15** |
 | ![LEE](BenchmarkTesting_Lee.png) |  ![DEGRACIA](BenchmarkTesting_DeGracia.png) |
 
 ## Execution Video
