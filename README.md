@@ -31,6 +31,11 @@ The most noticeable difference was observed with the 1000×1000 image. On the Vi
 
 Refer to the images below for the benchmark results:
 
+| | |
+|:---:|:---:|
+| **ASUS A (VivoBook M570DD)** | **ASUS Nitro V15** |
+| BenchmarkTesting_Lee.png | BenchmarkTesting_DeGracia.png |
+
   - **ASUS A (VivoBook M570DD)**
 
     ![LEE](BenchmarkTesting_Lee.png)
