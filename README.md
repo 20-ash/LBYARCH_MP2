@@ -9,7 +9,6 @@
 
 - **Program Execution and Output**
 
- <img src="BenchmarkTesting_Lee.png" width="48%" height="300" />
- <img src="BenchmarkTesting_DeGracia.png" width="48%" height="300" />
+ <img src="BenchmarkTesting_Lee.png" width="100%" /> <img src="BenchmarkTesting_DeGracia.png" width="100%" />
 
 ## Execution Video
