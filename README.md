@@ -10,5 +10,6 @@
 - **Program Execution and Output**
 
   ![Program Execution and Output](BenchmarkTesting_Lee.png)
+  ![Program Execution and Output2](BenchmarkTesting_DeGracia.png)
 
 ## Execution Video
