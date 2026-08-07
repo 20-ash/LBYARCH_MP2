@@ -9,6 +9,10 @@
 
 - **Program Execution and Output**
 
- <img src="BenchmarkTesting_Lee.png" width="100%" /> <img src="BenchmarkTesting_DeGracia.png" width="100%" />
+ **Program Execution and Output**
+ 
+|:---:|:---:|
+| ![](BenchmarkTesting_Lee.png) | ![](BenchmarkTesting_DeGracia.png) |
+| *Asus VivoBook M570DD* | *ASUS Nitro v15* |
 
 ## Execution Video
