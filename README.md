@@ -7,6 +7,7 @@
 
 ## Documentation
   - **Average Execution Time (30 runs, seconds)**
+    
 | Image Size | **C Implementation** | | **ASM Implementation** | |
 |:---:|:---:|:---:|:---:|:---:|
 | | *VivoBook M570DD* | *Nitro V15* | *VivoBook M570DD* | *Nitro V15* |
