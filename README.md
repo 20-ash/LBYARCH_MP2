@@ -13,7 +13,7 @@
 
   ![LEE](BenchmarkTesting_Lee.png)
 
-  - **ASUS Nitro V15**
+- **ASUS Nitro V15**
 
   ![DEGRACIA](BenchmarkTesting_DeGracia.png)
 
