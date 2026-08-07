@@ -33,8 +33,24 @@ int checkCorrectness(unsigned char* input, float* output, int size)
     return 1;   // Output is correct
 }
 
+// C implementation of grayscale integer to float conversion
+void imgCvtGrayInttoFloat_C(
+    unsigned char* input,
+    float* output,
+    int width,
+    int height
+)
+{
+    int size = width * height;       // Calculate total number of pixels
+    for (int i = 0; i < size; i++)  // Convert every pixel from integer to normalized float
+    {
+        output[i] = input[i] / 255.0f;
+    }
+}
+
 // Function to perform required performance testing
-void runBenchmark()
+// 0 for C Testing, 1 for ASM Testing
+void runBenchmark(int useASM)
 {
     // Indicated image sizes
     int imageSizes[3][2] = {
@@ -48,9 +64,12 @@ void runBenchmark()
 
 
     printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
-    printf("Performance Testing\n");
+    // Display which implementation is being tested
+    if (useASM)
+        printf("ASM Performance Testing\n");
+    else
+        printf("C Performance Testing\n");
     printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
-
 
     // Test each image size
     for (int test = 0; test < 3; test++)
@@ -84,12 +103,27 @@ void runBenchmark()
         for (int i = 0; i < runs; i++)
         {
             clock_t start = clock();  // Start timer
-            imgCvtGrayInttoFloat(    // Assembly function being measured
-                input,
-                output,
-                width,
-                height
-            );
+            // Run Assembly implementation
+            if (useASM)
+            {
+                imgCvtGrayInttoFloat(
+                    input,
+                    output,
+                    width,
+                    height
+                );
+            }
+
+            // Run C implementation
+            else
+            {
+                imgCvtGrayInttoFloat_C(
+                    input,
+                    output,
+                    width,
+                    height
+                );
+            }
             clock_t end = clock();  // Stop timer
 
             // Calculate elapsed time
@@ -100,7 +134,6 @@ void runBenchmark()
         // Compute and print average execution time
         double avgTime = totalTime / runs;  
         printf("Average Execution Time (%d runs): %.6f seconds\n", runs, avgTime);
-
 
         // Check correctness
         if (checkCorrectness(input, output, totalPixels))
@@ -179,6 +212,7 @@ int main(void)
     free(input);
     free(output);
 
-    runBenchmark();
+    runBenchmark(0);  // Run C implementation benchmark
+    runBenchmark(1);  // Run ASM implementation benchmark
     return 0;
 }
