@@ -9,7 +9,7 @@
 
 - **Program Execution and Output**
 
-  ![Program Execution and Output](BenchmarkTesting_Lee.png)
-  ![Program Execution and Output2](BenchmarkTesting_DeGracia.png)
+ <img src="BenchmarkTesting_Lee.png" width="48%" height="300" />
+ <img src="BenchmarkTesting_DeGracia.png" width="48%" height="300" />
 
 ## Execution Video
