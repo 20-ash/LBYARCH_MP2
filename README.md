@@ -3,14 +3,18 @@
 | Name | GitHub |
 | :--- | :--- |
 | Lee, Ashley Fiona | [@20-ash](https://github.com/20-ash) |
-| de Gracia, Kaleela Ysabel | [oresamu](https://github.com/oresamu) |
+| De Gracia, Kaleela Ysabel | [oresamu](https://github.com/oresamu) |
 
 ## Documentation
 
 **Program Execution and Output**
 
-|:---:|:---:|
-| ![](BenchmarkTesting_Lee.png) | ![](BenchmarkTesting_DeGracia.png) |
-| *ASUS A (VivoBook M570DD)* | *ASUS Nitro V15* |
+- **ASUS A (VivoBook M570DD)**
+
+  ![LEE](BenchmarkTesting_Lee.png)
+
+  - **ASUS Nitro V15**
+
+  ![DEGRACIA](BenchmarkTesting_DeGracia.png)
 
 ## Execution Video
