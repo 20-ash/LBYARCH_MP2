@@ -6,6 +6,13 @@
 | De Gracia, Kaleela Ysabel | [oresamu](https://github.com/oresamu) |
 
 ## Documentation
+**Average Execution Time (30 runs, seconds)**
+| Image Size | C Implementation | | ASM Implementation | |
+|:---:|:---:|:---:|:---:|:---:|
+| | **VivoBook M570DD** | **Nitro V15** | **VivoBook M570DD** | **Nitro V15** |
+| **10×10** | 0.000000 | 0.000000 | 0.000000 | 0.000000 |
+| **100×100** | 0.000033 | 0.000000 | 0.000067 | 0.000033 |
+| **1000×1000** | 0.005100 | 0.001333 | 0.004100 | 0.003467 |
 
 **Program Execution and Output**
 
