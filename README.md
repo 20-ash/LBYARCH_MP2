@@ -9,10 +9,8 @@
 
 - **Program Execution and Output**
 
- **Program Execution and Output**
- 
 |:---:|:---:|
 | ![](BenchmarkTesting_Lee.png) | ![](BenchmarkTesting_DeGracia.png) |
-| *Asus VivoBook M570DD* | *ASUS Nitro v15* |
+| *ASUS A (VivoBook M570DD)* | *ASUS Nitro V15* |
 
 ## Execution Video
