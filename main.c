@@ -63,13 +63,13 @@ void runBenchmark(int useASM)
     srand((unsigned int)time(NULL));  // Initialize random number generator
 
 
-    printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+    printf("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
     // Display which implementation is being tested
     if (useASM)
         printf("ASM Performance Testing\n");
     else
         printf("C Performance Testing\n");
-    printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+    printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
     // Test each image size
     for (int test = 0; test < 3; test++)
